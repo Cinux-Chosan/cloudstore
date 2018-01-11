@@ -1,0 +1,39 @@
+<view class="store">
+  <view class="store-info">
+    <image src="{{'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'}}" class="avatar"></image>
+    <text>店铺名称巴拉巴拉</text>
+  </view>
+  <view wx:if="{{showBanner}}" class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="main">
+    <view class="categories" style="{{isShowCategory ? 'transform: translateX(0);' : 'transform: translateX(-100%);'}}" bindtap="select">
+      <view class="categories-title hidden">分类</view>
+      <scroll-view scroll-y>
+        <block wx:for="{{categories}}" wx:key="val">
+          <view class="category-item" style="{{(index === selected || !(index || selected)) ? 'background:#ccc;' : ''}}" data-index="{{index}}">
+            {{item.key}}
+          </view>
+        </block>
+      </scroll-view>
+      <view class="categories-btn" bindtap="toggleCategory" style="{{isShowCategory ? 'transform: rotate(0);' : 'transform: rotate(180deg);'}}">
+        <text class="iconfont icon-zuoyoujiantou"></text>
+      </view>
+    </view>
+    <view class="goods">
+      <view class="goods-item">
+
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+
+  </view>
+</view>
